@@ -204,12 +204,9 @@ jobs:
   
 # Upload Trivy SARIF
   
-
-    - name: Upload Filesystem Scan
-      uses: github/codeql-action/upload-sarif@v3
-      if: always()
-      with:
-        sarif_file: trivy-fs.sarif
+    - name: Run Trivy scan (CLI) 
+      run: | 
+        trivy fs --format sarif --output trivy-fs.sarif --severity CRITICAL,HIGH --exit-code 1 --ignore-unfixed 
 
   
 # Hadolint Dockerfile Scan
