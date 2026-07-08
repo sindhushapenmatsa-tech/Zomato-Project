@@ -130,7 +130,7 @@ jobs:
 
     - name: Build Application
       run: |
-        npm run build
+        npm link
 
 # Verify Build
 
